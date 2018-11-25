@@ -12,7 +12,7 @@ class Boot extends Component {
     return (
         <div className="Boot">
 		<Head />
-
+		<a name="top" ></a>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 		  <a class="navbar-brand" href="#">Weird Weather</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,25 +22,14 @@ class Boot extends Component {
 		  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
 			  <li class="nav-item active">
-				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="#top">Top <span class="sr-only">(current)</span></a>
 			  </li>
-			  <li class="nav-item">
-				<a class="nav-link" href="#">Link</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link disabled" href="#">Disabled</a>
-			  </li>
-			  <li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-				<div class="dropdown-menu" aria-labelledby="dropdown01">
-				  <a class="dropdown-item" href="#">Action</a>
-				  <a class="dropdown-item" href="#">Another action</a>
-				  <a class="dropdown-item" href="#">Something else here</a>
-				</div>
+			  <li class="nav-item active">
+				<a class="nav-link" href="#about">About</a>
 			  </li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
-			  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
+			  <input class="form-control mr-sm-2" type="text" placeholder="Enter Location" aria-label="Locaiton"/>
 			  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 		  </div>
@@ -53,9 +42,9 @@ class Boot extends Component {
 		  {/* Main jumbotron for a primary marketing message or call to action */}
 		  <div class="jumbotron">
 			<div class="container">
-			  <h1 class="display-3">Hello, world!</h1>
-			  <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-			  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+			  <h1 class="display-3">Understand Your Weather</h1>
+			  <p>Sometimes it feels like usual weather, but it's hard to know what's happened in the past.  Enter a location above and find out more.</p>
+			  <p><a class="btn btn-primary btn-lg" href="#about" role="button">Learn more &raquo;</a></p>
 			</div>
 		  </div>
 
@@ -63,40 +52,42 @@ class Boot extends Component {
 			{/* Example row of columns */}
 			<div class="row">
 			  <div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+				<h2>Daily Compare</h2>
+				<p>(select a location)</p>
+				<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+			  </div>
+			  <div class="col-md-4">
+				<h2>Weekly Compare</h2>
+				<p>(select a location)</p>
 				<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
 			  </div>
 			  <div class="col-md-4">
 				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-				<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-			  </div>
-			  <div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+				<p>(select a location)</p>
 				<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
 			  </div>
 			</div>
+			
 
-			<hr />
+
 
 		  </div> 
+		  		  
+		  <div class="jumbotron">
+		    <a name="about"></a>
+			<div class="container">
+			  <h1 class="display-3">About</h1>
+			  <p>SNotes here on how this was computed.</p>
+			</div>
+			<hr />
+		  </div>
+
 
 		</main>
 
 		<footer class="container">
-		  <p>&copy; Company 2017-2018</p>
+		  <p>&copy; Dave Douglas 2018</p>
 		</footer>
-
-    {/*  Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    */}
 		
 		</div>
 
