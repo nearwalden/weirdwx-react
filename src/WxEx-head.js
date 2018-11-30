@@ -8,7 +8,7 @@ class Head extends React.Component {
             <Helmet>
 				<meta charset="utf-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-				<meta name="description" content="Is your weather weird?"/>
+				<meta name="description" content="Weather Explorer"/>
 				<meta name="author" content="Dave Douglas"/>
 
 				<title>Weather Explorer</title>
