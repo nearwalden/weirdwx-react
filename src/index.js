@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import Boot from './Boot';
+// import Boot from './Boot';
+import WxEx from './WxEx';
 import * as serviceWorker from './serviceWorker';
 
 // ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<Boot />, document.getElementById('root'));
+ReactDOM.render(<WxEx />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
