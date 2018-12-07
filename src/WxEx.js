@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Head from './WxEx-head.js';
-import Main from './Main.js';
+import Home from './Home.js';
+import Location from './Location.js';
+import Loading from './Loading.js';
+import Now from './Now.js';
 import './vendor/bootstrap/css/bootstrap.min.css';
 import './css/main.css';
 import './css/sidebar-themes.css';
@@ -13,17 +16,67 @@ class WxEx extends Component {
       view: 'home',
       lat:  null,
       lon: null,
-      loc:  ""
+      loc:  "",
+      data: null
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
-  clickHandler (button) {
+  navClick (button) {
   	this.setState ({
   		view:  button
   		});
   	}
+  
+  handleSubmit(lat, lon) {
+    
+    this.setState ({
+    	lat: lat,
+    	lon: lon
+    })
+    
+    const url = "http://localhost:9000/summary?lat="+lat+"&lon="+lon;
+
+	console.log("URL = " + url);
+	
+	this.setState({view: "loading"});
+    
+    fetch (url) 
+    	.then(response => response.json())
+  		.then(data => {
+    		console.log(data);
+    		this.setState({data: data.data,
+    						view: 'now'});
+  		});
+  }
+  
 
   render() {
+  	let viewElement;
+  	var view = this.state.view;
+  	
+  	switch (view) {
+  		case "home":  
+  			viewElement = <Home 
+  							onSubmit={this.handleSubmit}
+  							/>;
+  			break;
+  		case "location":
+  			viewElement = <Location />;
+  			break;
+  		case "loading":
+  			viewElement = <Loading />;
+  			break;
+  		case "now":
+  			viewElement = <Now 
+  							data={this.state.data}
+  							/>;
+  			break;  		
+  		default: 
+  			viewElement = <Home />;
+  	};
+  		
+  		
     return (
         <div className="WxEx">
 		<Head />
@@ -35,7 +88,9 @@ class WxEx extends Component {
 				<nav id="sidebar" class="sidebar-wrapper">
 					<div class="sidebar-content">
 						<div class="sidebar-brand">
-							<a href="#">Weather Explorer</a>
+							<a href="#" onClick={() => this.navClick('home')}>
+								Weather Explorer
+							</a>
 							<div id="close-sidebar">
 								<i class="fas fa-times"></i>
 							</div>
@@ -47,21 +102,21 @@ class WxEx extends Component {
 									<span>Info</span>
 								</li>
 								<li>
-									<a href="#">
+									<a href="#" onClick={() => this.navClick('now')}>
 										<i class="fa fa-calendar"></i>
-										<span>Location</span>
+										<span>Now</span>
 									</a>
 								</li>
 								<li>
 									<a href="#">
 										<i class="fa fa-calendar"></i>
-										<span>Current</span>
+										<span>Last Week</span>
 									</a>
 								</li>
 								<li>
 									<a href="#">
 										<i class="fa fa-calendar"></i>
-										<span>Historical</span>
+										<span>Next Week</span>
 									</a>
 								</li>
 							</ul>
@@ -74,7 +129,7 @@ class WxEx extends Component {
 				{/* sidebar-wrapper  */}
 				<main class="page-content">
 					<div class="container-fluid">
-						<Main />
+					{viewElement}
 					</div>
 				</main>
 				{/* page-content" */}
