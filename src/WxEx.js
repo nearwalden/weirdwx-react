@@ -81,7 +81,7 @@ class WxEx extends Component {
         <div className="WxEx">
 		<Head />
 		
-			<div class="page-wrapper chiller-theme sidebar-bg bg1 toggled">
+			<div class="page-wrapper sidebar-bg bg1 toggled">
 				<a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
 					<i class="fas fa-bars"></i>
 				</a>

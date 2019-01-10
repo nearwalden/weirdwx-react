@@ -11,6 +11,9 @@ class Now extends Component {
 				<div class="form-group col-md-12">
 						<h2>Now</h2>
 						<p>Current temperature:  {this.props.data['current']['temperature']}</p>
+						<p>Precipitation today:  </p>
+						<hr/>
+						<h3>Historical View</h3>
 				</div>
 				<hr/>
 				<div class="row">
