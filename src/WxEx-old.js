@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { Component } from 'react';
 import Head from './WxEx-head.js';
 import Home from './Home.js';
@@ -7,7 +6,7 @@ import Loading from './Loading.js';
 import Now from './Now.js';
 import './vendor/bootstrap/css/bootstrap.min.css';
 import './css/main.css';
-// import './css/sidebar-themes.css';
+import './css/sidebar-themes.css';
 
 class WxEx extends Component {
 
@@ -66,11 +65,11 @@ class WxEx extends Component {
   			viewElement = <Location />;
   			break;
   		case "loading":
-  			 viewElement = <Loading />;
+  			viewElement = <Loading />;
   			break;
   		case "now":
-  			 viewElement = <Now 
-  			 				data={this.state.data}
+  			viewElement = <Now 
+  							data={this.state.data}
   							/>;
   			break;  		
   		default: 
@@ -80,40 +79,61 @@ class WxEx extends Component {
   		
     return (
         <div className="WxEx">
-			<Head />
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
-				<a className="navbar-brand" href="#">Navbar</a>
-				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span className="navbar-toggler-icon"></span>
-				</button>
-				<div className="collapse navbar-collapse" id="navbarNav">
-					<ul className="navbar-nav">
-					<li className="nav-item active">
-						<a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-					</li>
-					<li className="nav-item">
-						<a className="nav-link" href="#">Features</a>
-					</li>
-					</ul>
-				</div>
-			</nav>
-			<div className="jumbotron jumbotron-fluid">
-				<div className="container">
-					<h1 className="display-4 text-white text-center">Weather Explorer</h1>
-				</div>
-			</div>
-			{/*
-			<div className="wide">
-				<div className="col-xs-2 logo">Logo</div>
-			</div>
-			*/}
+		<Head />
+		
+			<div class="page-wrapper sidebar-bg bg1 toggled">
+				<a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+					<i class="fas fa-bars"></i>
+				</a>
+				<nav id="sidebar" class="sidebar-wrapper">
+					<div class="sidebar-content">
+						<div class="sidebar-brand">
+							<a href="#" onClick={() => this.navClick('home')}>
+								Weather Explorer
+							</a>
+							<div id="close-sidebar">
+								<i class="fas fa-times"></i>
+							</div>
+						</div>
+						{/* sidebar-search  */}
+						<div class="sidebar-menu">
+							<ul>
+								<li class="header-menu">
+									<span>Info</span>
+								</li>
+								<li>
+									<a href="#" onClick={() => this.navClick('now')}>
+										<i class="fa fa-calendar"></i>
+										<span>Now</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-calendar"></i>
+										<span>Last Week</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-calendar"></i>
+										<span>Next Week</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						{/*} sidebar-menu  */}
+					</div>
+					{/*} sidebar-content  */}
 
-			<div className="container">
-				<div className="text-center">
+				</nav>
+				{/* sidebar-wrapper  */}
+				<main class="page-content">
+					<div class="container-fluid">
 					{viewElement}
-				</div>
-			</div>{/* /.container */}		
-
+					</div>
+				</main>
+				{/* page-content" */}
+			</div>	
 		</div>	
 		
     );

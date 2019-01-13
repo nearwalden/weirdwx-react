@@ -1,5 +1,7 @@
 This is the web front-end of a tool for people to better understand their weather in a historical context.  People often think their weather is strange, but it's really hard to know.  This site uses a number of data sources to put the weather in a historical context.
 
+Built on Boostrap 4 with [this simple template](https://www.bootply.com/108614).
+
 ## Site Development
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), with the add-in of [react-bootstrap](https://react-bootstrap.netlify.com).  

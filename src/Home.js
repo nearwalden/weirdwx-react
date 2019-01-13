@@ -18,22 +18,21 @@ class Home extends Component {
   render() {
     return (
         <div className="Home">	
-        	<div class="row">
-				<div class="form-group col-md-12">
-						<h1>Weather Explorer</h1>
+        	<div className="row">
+				<div className="form-group col-md-12">
 						<p>Enter your location below.</p>
 
 					</div>
 				</div>
 				<hr/>
-				<div class="row">
-					<div class="form-group col-md-12">
+				<div className="row">
+					<div className="form-group col-md-12">
 						<h3>Location</h3>
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="form-group col-md-12">
+				<div className="row">
+					<div className="form-group col-md-12">
 						<form href="#" onSubmit={this.handleSubmit}>
 							<label htmlFor="lat">Latitude</label>
 							<input id="lat" name="lat" type="text" />
@@ -46,12 +45,6 @@ class Home extends Component {
 				</div>
 
 				<hr/>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<a href="https://github.com/azouaoui-med/pro-sidebar-template" class="btn btn-dark" target="_blank">
-							<i class="fab fa-github"></i> View template source</a>
-					</div>
-				</div>
 			</div>
 		</div>
 							
