@@ -70,7 +70,9 @@ class WxEx extends Component {
   			break;
   		case "now":
   			 viewElement = <Now 
-  			 				data={this.state.data}
+							   data={this.state.data}
+							   lat={this.state.lat}
+							   lon={this.state.lon}
   							/>;
   			break;  		
   		default: 
