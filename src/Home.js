@@ -5,14 +5,14 @@ import React, { Component } from 'react';
 class Home extends Component {
 	constructor(props) {
 		super(props);
-		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleLatLon = this.handleLatLon.bind(this);
 	}
 
-	handleSubmit(e) {
+	handleLatLon(e) {
 		e.preventDefault();
 		const data = new FormData(e.target);
 		//console.log("data = " + data + ", lat = "+data.get('lat'));
-  		this.props.onSubmit(data.get("lat"), data.get("lon"));
+  		this.props.onSubmitLatLon(data.get("lat"), data.get("lon"));
 	}
 	
   render() {
@@ -33,14 +33,14 @@ class Home extends Component {
 
 				<div className="row">
 					<div className="form-group col-md-12">
-						<form href="#" onSubmit={this.handleSubmit}>
+						<form href="#" onSubmit={this.handleLatLon}>
 							<label htmlFor="lat">Latitude</label>
 							<input id="lat" name="lat" type="text" />
 
 							<label htmlFor="lon">Longitude</label>
 							<input id="lon" name="lon" type="text" />
 
-							<button>Submit</button>
+							<button>Submit Lat/location</button>
 					  	</form>		   
 				</div>
 

@@ -20,7 +20,7 @@ class WxEx extends Component {
       loc:  "",
       data: null
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLatLon = this.handleLatLon.bind(this);
   }
   
   navClick (button) {
@@ -29,7 +29,7 @@ class WxEx extends Component {
   		});
   	}
   
-  handleSubmit(lat, lon) {
+  handleLatLon(lat, lon) {
     
     this.setState ({
     	lat: lat,
@@ -59,7 +59,7 @@ class WxEx extends Component {
   	switch (view) {
   		case "home":  
   			viewElement = <Home 
-  							onSubmit={this.handleSubmit}
+  							onSubmitLatLon={this.handleLatLon}
   							/>;
   			break;
   		case "location":
