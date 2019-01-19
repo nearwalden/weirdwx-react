@@ -11,7 +11,7 @@ class Home extends Component {
 	handleLatLon(e) {
 		e.preventDefault();
 		const data = new FormData(e.target);
-		//console.log("data = " + data + ", lat = "+data.get('lat'));
+		// console.log("data = " + data + ", lat = "+data.get('lat'));
   		this.props.onSubmitLatLon(data.get("lat"), data.get("lon"));
 	}
 	
