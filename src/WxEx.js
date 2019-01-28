@@ -18,7 +18,6 @@ class WxEx extends Component {
 	  place: "",
       lat:  null,
       lon: null,
-      loc:  "",
       data: null
     };
 	this.handleLatLon = this.handleLatLon.bind(this);
@@ -32,13 +31,13 @@ class WxEx extends Component {
 	  }
 
   handlePlace (place) {
-	  this.setPlace ({
+	  this.setState ({
 		  place: place
 	  });
 
 	  const nowID = "101U8uiWx4CPxqo0UfE6";
 	  const nowCode = "5zoGKZivRQzuL9a8nrSqdw";
-	  const nowQuery = "app_id=" + nowID + "&app_code" + nowCode + "&searchtext=" + place;
+	  const nowQuery = "app_id=" + nowID + "&app_code=" + nowCode + "&searchtext=" + place;
 	  const url = "https://geocoder.api.here.com/6.2/geocode.json?" +nowQuery;
 
 	  console.log("Place = " + place);
@@ -48,9 +47,10 @@ class WxEx extends Component {
   		.then(data => {
 			console.log(data);
 			// check for error here
-			var lat = ;
-			var lon = ;
-			handleLocation(lat, lon)
+			var loc = data['Response']['View'][0]['Result'][0]['Location']['NavigationPosition'][0];
+			var lat = loc['Latitude'];
+			var lon = loc['Longitude'];
+			this.handleLatLon(lat, lon)
 
   		});
 
@@ -86,7 +86,8 @@ class WxEx extends Component {
   	switch (view) {
   		case "home":  
   			viewElement = <Home 
-  							onSubmitLatLon={this.handleLatLon}
+							  onSubmitLatLon={this.handleLatLon}
+							  onSubmitPlace={this.handlePlace}
   							/>;
   			break;
   		case "location":
@@ -112,7 +113,7 @@ class WxEx extends Component {
 			<Head />
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				{/* <a className="navbar-brand" href="#">Navbar</a> */}
-				<a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>	
+				<a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>	
 				<a className="nav-link" href="#">About</a>		
 			</nav>
 			<div className="jumbotron jumbotron-fluid">

@@ -6,6 +6,7 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.handleLatLon = this.handleLatLon.bind(this);
+		this.handlePlace = this.handlePlace.bind(this);
 	}
 	handleLatLon(e) {
 		e.preventDefault();
