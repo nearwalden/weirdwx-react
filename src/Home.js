@@ -7,12 +7,18 @@ class Home extends Component {
 		super(props);
 		this.handleLatLon = this.handleLatLon.bind(this);
 	}
-
 	handleLatLon(e) {
 		e.preventDefault();
 		const data = new FormData(e.target);
 		// console.log("data = " + data + ", lat = "+data.get('lat'));
   		this.props.onSubmitLatLon(data.get("lat"), data.get("lon"));
+	}
+
+	handlePlace(e) {
+		e.preventDefault();
+		const data = new FormData(e.target);
+		// console.log("data = " + data + ", lat = "+data.get('lat'));
+  		this.props.onSubmitPlace(data.get("place"));
 	}
 	
   render() {
@@ -21,7 +27,11 @@ class Home extends Component {
         	<div className="row">
 				<div className="form-group col-md-12">
 						<p>Enter your location below.</p>
-
+						<form href="#" onSubmit={this.handlePlace}>
+							<label htmlFor="place">Location</label>
+							<input id="place" name="place" type="text" />
+							<button>Submit location</button>
+					  	</form>		   
 					</div>
 				</div>
 				<hr/>
@@ -40,7 +50,7 @@ class Home extends Component {
 							<label htmlFor="lon">Longitude</label>
 							<input id="lon" name="lon" type="text" />
 
-							<button>Submit Lat/location</button>
+							<button>Submit lat/lon</button>
 					  	</form>		   
 				</div>
 

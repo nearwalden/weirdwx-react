@@ -14,20 +14,47 @@ class WxEx extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'home',
+	  view: 'home',
+	  place: "",
       lat:  null,
       lon: null,
       loc:  "",
       data: null
     };
-    this.handleLatLon = this.handleLatLon.bind(this);
+	this.handleLatLon = this.handleLatLon.bind(this);
+	this.handlePlace = this.handlePlace.bind(this);
   }
   
   navClick (button) {
   	this.setState ({
   		view:  button
   		});
-  	}
+	  }
+
+  handlePlace (place) {
+	  this.setPlace ({
+		  place: place
+	  });
+
+	  const nowID = "101U8uiWx4CPxqo0UfE6";
+	  const nowCode = "5zoGKZivRQzuL9a8nrSqdw";
+	  const nowQuery = "app_id=" + nowID + "&app_code" + nowCode + "&searchtext=" + place;
+	  const url = "https://geocoder.api.here.com/6.2/geocode.json?" +nowQuery;
+
+	  console.log("Place = " + place);
+
+	  fetch (url) 
+    	.then(response => response.json())
+  		.then(data => {
+			console.log(data);
+			// check for error here
+			var lat = ;
+			var lon = ;
+			handleLocation(lat, lon)
+
+  		});
+
+	}
   
   handleLatLon(lat, lon) {
     
